@@ -1,0 +1,28 @@
+/* @font-face {
+    font-family: 'orlandohealth';
+    src: url("/fonts/orlandohealth.eot");
+    src: url("/fonts/orlandohealth.eot?#iefix") format("embedded-opentype"),url("../../assets/icons/orlandohealth.svg#orlandohealth") format("svg"),url("../../assets/icons/orlandohealth.woff") format("woff"),url("../../assets/icons/orlandohealth.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal
+} */
+
+@font-face {
+    font-family: "Lufga";
+    src: url("/fonts/LufgaRegular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/fonts/GilroyRegular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: "Aspira";
+    src: url("/fonts/GilroyRegular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal
+}

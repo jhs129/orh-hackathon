@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+/* html,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+ 
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline
+} */
+
+body {
+  @apply bg-white;
+}
+
+h1 {
+  @apply text-[2.5rem] mb-4 font-sans leading-none text-primaryDark;
+}
+h2 {
+  @apply text-[2rem] mb-4 font-medium font-sans text-primaryDark;
+}
+h3 {
+  @apply text-xl mt-4 mb-4 font-sans leading-5;
+}
+h4 {
+  @apply text-lg mb-4 font-sans;
+}
+h5 {
+  @apply text-base mb-4 font-bold font-sans;
+}
+h6 {
+  @apply mb-4 font-sans;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-style: inherit;
+    vertical-align: baseline;
+    line-height: 1.25em;
+    font-weight: 700;
+    font-family: UniversBold,Helvetica,sans-serif;
+    font-size: 12px;
+    border-bottom: none!important;
+    color: #002072;
+    margin-bottom: .5rem;
+
+}
+p {
+  @apply mb-4  font-serif font-thin leading-[1.125rem];
+}
+
+a {
+/* transition: color .25s ease-in-out; */
+ @apply transition-colors duration-300 ease-in-out;
+}
+
+button {
+  @apply mx-auto px-6 py-2 bg-primaryAccent hover:bg-secondaryAccent text-white hover:text-primaryDark rounded-full transition-colors duration-300 ease-in-out;
+}
+
+ul {
+  @apply list-disc px-4;
+}
+
+li {
+  @apply mb-2 pr-4;  
+}
+
+}
+
+.btn-carousel {
+  @apply bg-tertiaryAccent hover:bg-secondaryDark text-white border border-tertiaryAccent rounded-lg px-2 py-4 capitalize
+}
+
+.site-container {
+@apply container mx-auto px-0;
+
+}
+
+.theme-dark {
+@apply bg-primaryDark text-white;
+}
+
+.theme-dark-2 {
+@apply bg-secondaryDark text-white;
+}
+
+.theme-light {
+@apply bg-primaryLight text-black;
+}
+
+
+/* HAMBURGER MENU */
+
+.hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  @apply bg-orange-600;
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 3px;
+  top: 0;
+  left: 0;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translateX(6px);
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translateX(-6px);
+}
+
