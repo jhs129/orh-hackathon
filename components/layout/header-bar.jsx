@@ -34,7 +34,7 @@ function HeaderBar({ logoImage, mobileLogoImage, logoAlt, content }) {
       <div className="flex flex-row gap-8 my-auto text-base leading-5 text-center text-white uppercase whitespace-nowrap max-md:flex-wrap max-md:max-w-full">
         {navigation.group[0].level1.map((item, index) => (
           <div key={index} className="hidden lg:flex grow justify-center px-8 py-4 align-middle leading-5 text-base bg-primaryAccent text-primaryLight hover:bg-primaryDark hover:text-secondaryAccent rounded-3xl max-md:px-5">
-            <a href={item.src} key={index}>{item.text}</a>
+            <a href={item.src} key={index} className="text-primaryLight hover:bg-primaryDark hover:text-secondaryAccent">{item.text}</a>
           </div>
         ))}
         <div className="self-start lg:pl-4 lg:pt-3 pt-2 pl-2 w-10 h-10 lg:w-14 lg:h-14 rounded-3xl bg-zinc-100">

@@ -55,7 +55,11 @@ p {
 
 a {
 /* transition: color .25s ease-in-out; */
- @apply transition-colors duration-300 ease-in-out;
+ @apply text-primaryAccent  hover:text-secondaryDark transition-colors duration-300 ease-in-out;
+}
+
+nav a {
+  @apply text-white hover:text-secondaryDark transition-colors duration-300 ease-in-out;
 }
 
 button {
