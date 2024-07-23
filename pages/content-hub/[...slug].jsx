@@ -98,16 +98,6 @@ function BlogPage(props) {
           <div class="blog-content clearfix">
             <BuilderComponent model="blog" content={blog} />
           </div>
-          {/* <BlogCTA
-            image="https://www.orlandohealth.com/-/media/images/shared/call-to-action-target/man-and-woman-laughing.jpg?w=600"
-            altText="man and woman laughing"
-            title="Choose to Stay in Touch"
-            description="Sign up to receive the latest health news and trends, wellness
-                &amp; prevention tips, and much more from Orlando Health."
-            linkUrl="https://www.orlandohealth.com/newsletter-signup?ref=557ED11EDD6A4DB2B78F3270C3F08276"
-            linkLabel="Sign Up"
-            linkTitle="Newsletter Signup"
-          /> */}
         </div>
       </main>
 
