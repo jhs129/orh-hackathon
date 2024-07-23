@@ -9,11 +9,12 @@ import Head from "next/head";
 import DefaultErrorPage from "next/error";
 
 import "/builder-registry";
-import { useEffect } from "react";
+
 import TopNavBar from "@/components/layout/top-nav-bar";
 import HeaderBar from "@/components/layout/header-bar";
 import Footer from "@/components/layout/Footer";
-import Hero from "@/components/ui/hero";
+import TaxonomyTags from "@/components/ui/taxomomy-tags";
+import BlogCTA from "@/components/ui/blog-cta";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
 
@@ -81,62 +82,32 @@ function BlogPage(props) {
           <div
             class="lazy-background"
             role="img"
-            aria-label="0617 Concussion Image"
+            aria-label={blog?.data?.altText}
             style={{
               backgroundImage: `url('${blog?.data?.image}')`,
             }}
           ></div>
 
-          <div class="post-blog-details">
-            <div class="texonomy-tag">
-              <a
-                href="/content-hub/categories/patient-care/tests-and-treatments/rehabilitation/"
-                target="_self"
-                class="view-all-link view-all-category-links"
-              >
-                Rehabilitation
-              </a>
-            </div>
-            <h1 class="blog-details-title">{blog?.data?.title}</h1>
-
-            <div
-              class="page-visit-count"
-              data-page-id={blog?.data?.sitecoreId}
-            >
+          <div className="post-blog-details">
+            <TaxonomyTags taxonomies={blog?.data?.taxonomies} />
+            <h1 className="pt-2">{blog?.data?.title}</h1>
+            <div class="page-visit-count" data-page-id={blog?.data?.sitecoreId}>
               <span class="count-text">103 views</span>
             </div>
           </div>
           <div class="blog-content clearfix">
             <BuilderComponent model="blog" content={blog} />
           </div>
-          <div class="blog-call-to-action large clearfix">
-            <div class="blog-cta-image-wrapper">
-              <a href="https://www.orlandohealth.com/newsletter-signup?ref=557ED11EDD6A4DB2B78F3270C3F08276">
-                <img
-                  src="https://www.orlandohealth.com/-/media/images/shared/call-to-action-target/man-and-woman-laughing.jpg?w=600"
-                  alt="man and woman laughing"
-                  class="blog-cta-image"
-                />
-              </a>
-            </div>
-
-            <div class="blog-cta-info">
-              <h3 class="blog-cta-title">Choose to Stay in Touch </h3>
-              <p>
-                Sign up to receive the latest health news and trends, wellness
-                &amp; prevention tips, and much more from Orlando Health.
-              </p>
-
-              <a
-                href="https://www.orlandohealth.com/newsletter-signup?ref=557ED11EDD6A4DB2B78F3270C3F08276"
-                class="btn large-btn-dark  "
-                aria-label="Sign Up"
-                title="Newsletter SignUp"
-              >
-                Sign Up
-              </a>
-            </div>
-          </div>
+          {/* <BlogCTA
+            image="https://www.orlandohealth.com/-/media/images/shared/call-to-action-target/man-and-woman-laughing.jpg?w=600"
+            altText="man and woman laughing"
+            title="Choose to Stay in Touch"
+            description="Sign up to receive the latest health news and trends, wellness
+                &amp; prevention tips, and much more from Orlando Health."
+            linkUrl="https://www.orlandohealth.com/newsletter-signup?ref=557ED11EDD6A4DB2B78F3270C3F08276"
+            linkLabel="Sign Up"
+            linkTitle="Newsletter Signup"
+          /> */}
         </div>
       </main>
 
