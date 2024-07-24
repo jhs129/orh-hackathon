@@ -80,7 +80,7 @@ function BlogPage(props) {
           <h5>&lt; View All Articles</h5>
           <img src={blog?.data?.image} alt={blog?.data?.title} />
           <div
-            class="lazy-background"
+            className="lazy-background"
             role="img"
             aria-label={blog?.data?.altText}
             style={{
@@ -91,13 +91,14 @@ function BlogPage(props) {
           <div className="post-blog-details">
             <TaxonomyTags taxonomies={blog?.data?.taxonomies} />
             <h1 className="pt-2">{blog?.data?.title}</h1>
-            <div class="page-visit-count" data-page-id={blog?.data?.sitecoreId}>
-              <span class="count-text">103 views</span>
+            <div className="page-visit-count" data-page-id={blog?.data?.sitecoreId}>
+              <span className="count-text">103 views</span>
             </div>
           </div>
-          <div class="blog-content clearfix">
+          <div className="blog-content clearfix">
             <BuilderComponent model="blog" content={blog} />
           </div>
+          <BlogCTA {...blog?.data?.cta} />
         </div>
       </main>
 
