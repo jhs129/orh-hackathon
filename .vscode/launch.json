@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:3000/content-hub/blog-test",
+            "url": "http://localhost:3000/content-hub/all-about-baby-virtual",
             "webRoot": "${workspaceFolder}"
         }
     ]

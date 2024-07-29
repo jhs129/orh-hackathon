@@ -14,11 +14,13 @@ import TopNavBar from "@/components/layout/top-nav-bar";
 import HeaderBar from "@/components/layout/header-bar";
 import Footer from "@/components/layout/Footer";
 import TaxonomyTags from "@/components/ui/taxomomy-tags";
-import BlogCTA from "@/components/ui/blog-cta";
+
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
 
 function BlogPage(props) {
+
+  console.log("BlogPage props.blog.title:", props.blog?.title);
   const blog = props.blog;
 
   const isPreviewing = useIsPreviewing();
@@ -36,7 +38,7 @@ function BlogPage(props) {
   return (
     <>
       <Head>
-        <title>{blog?.data?.title || `Orlando Health | Home`}</title>
+        <title>{props.blog?.data?.title || `Orlando Health | Home`}</title>
         <meta
           name="description"
           content={
@@ -92,7 +94,7 @@ function BlogPage(props) {
             <TaxonomyTags taxonomies={blog?.data?.taxonomies} />
             <h1 className="pt-2">{blog?.data?.title}</h1>
             <div className="page-visit-count" data-page-id={blog?.data?.sitecoreId}>
-              <span className="count-text">103 views</span>
+              <span className="count-text">122 views</span>
             </div>
           </div>
           <div className="blog-content clearfix">
@@ -128,8 +130,8 @@ export const getStaticProps = async ({ params }) => {
     .promise();
 
   
-  let urlPath = "/" + (params?.page?.join("/") || "");
-  console.log("Getting page for urlPath:", urlPath);
+  // let urlPath = "/" + (params?.page?.join("/") || "");
+  // console.log("Getting page for urlPath:", urlPath);
 
     // const page = await builder
     // .get("page", {
@@ -149,9 +151,10 @@ export const getStaticProps = async ({ params }) => {
     })
     .toPromise();
 
+
   return {
     props: {
-      blog: blog,
+      blog: blog?.data || null,
       slug: params.slug,
       topnavbar: topNavContent?.data || null,
       headerbar: headerBarContent?.data || null,
