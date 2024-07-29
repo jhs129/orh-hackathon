@@ -129,18 +129,6 @@ export const getStaticProps = async ({ params }) => {
     .get("navigation", { query: { name: "headerbar" }, enrich: true })
     .promise();
 
-  
-  // let urlPath = "/" + (params?.page?.join("/") || "");
-  // console.log("Getting page for urlPath:", urlPath);
-
-    // const page = await builder
-    // .get("page", {
-    //   userAttributes: {
-    //     urlPath: "/" + (params?.page?.join("/") || ""),
-    //   },
-    // })
-    // .toPromise();
-
   console.log("Getting blog for slug:", params.slug);
 
   const blog = await builder
