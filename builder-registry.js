@@ -94,6 +94,22 @@ Builder.registerComponent(
 );
 
 Builder.registerComponent(
+  dynamic(() => import("@/components/ui/blog-cta")),
+  {
+    name: "Blog CTA",
+    inputs: [
+      { name: "image", type: "file" },
+      { name: "altText", type: "string", defaultValue: "Blog CTA Image" },
+      { name: "title", type: "string" },
+      { name: "description", type: "string", defaultValue: "[Blog CTA Description]" },
+      { name: "linkUrl", type: "url" },
+      { name: "linkLabel", type: "string" },
+      { name: "linkTitle", type: "string" }
+    ],
+  },  
+);
+
+Builder.registerComponent(
   withChildren(dynamic(() => import("@/components/ui/card-section"))),
   {
     name: "Card Section",
