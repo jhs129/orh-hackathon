@@ -36,32 +36,32 @@ function BlogPage(props) {
   return (
     <>
       <Head>
-        <title>{props?.page?.data?.title || `Orlando Health | Home`}</title>
+        <title>{blog?.data?.title || `Orlando Health | Home`}</title>
         <meta
           name="description"
           content={
-            props?.page?.data?.description ||
+            blog?.data?.description ||
             `Orlando Health - Florida's largest and most comprehensive health network, with more than 450 locations and 36,000 team members.`
           }
         />
-        <meta
+        {/* <meta
           name="keywords"
           content={
             props?.page?.data?.keywords ||
             `Healthcare , Health Network, Health Network Florida, Orlando Health`
           }
-        />
+        /> */}
 
         <meta
           property="og:image"
-          content={props?.page?.data?.shareImage || null}
+          content={blog?.data?.image || null}
         />
 
-        <meta property="og:title" content={props?.page?.data?.title || null} />
+        <meta property="og:title" content={blog?.data?.title || null} />
         <meta
           property="og:description"
           content={
-            props?.page?.data?.description ||
+            props?.blog?.data?.description ||
             `Orlando Health - Florida's largest and most comprehensive health network, with more than 450 locations and 36,000 team members.`
           }
         />
@@ -98,7 +98,6 @@ function BlogPage(props) {
           <div className="blog-content clearfix">
             <BuilderComponent model="blog" content={blog} />
           </div>
-          <BlogCTA {...blog?.data?.cta} />
         </div>
       </main>
 
@@ -116,23 +115,32 @@ function BlogPage(props) {
 export const getStaticProps = async ({ params }) => {
   // Fetch the builder content for the given page
 
+
+  console.log("Getting topNav");
   const topNavContent = await builder
     .get("navigation", { query: { name: "top-nav-bar" }, enrich: true })
     .promise();
+
+  console.log("Getting headerBarContent");
 
   const headerBarContent = await builder
     .get("navigation", { query: { name: "headerbar" }, enrich: true })
     .promise();
 
-  const page = await builder
-    .get("page", {
-      userAttributes: {
-        urlPath: "/" + (params?.page?.join("/") || ""),
-      },
-    })
-    .toPromise();
+  
+  let urlPath = "/" + (params?.page?.join("/") || "");
+  console.log("Getting page for urlPath:", urlPath);
 
-  console.log("****PARAMS:", params);
+    // const page = await builder
+    // .get("page", {
+    //   userAttributes: {
+    //     urlPath: "/" + (params?.page?.join("/") || ""),
+    //   },
+    // })
+    // .toPromise();
+
+  console.log("Getting blog for slug:", params.slug);
+
   const blog = await builder
     .get("blog", {
       userAttributes: {
@@ -145,7 +153,6 @@ export const getStaticProps = async ({ params }) => {
     props: {
       blog: blog,
       slug: params.slug,
-      page: page || null,
       topnavbar: topNavContent?.data || null,
       headerbar: headerBarContent?.data || null,
     },
