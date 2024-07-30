@@ -12,6 +12,12 @@ const nextConfig = BuilderDevTools()({
         port: "",
         pathname: "/api/v1/image/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.orlandohealth.com",
+        port: "",
+        pathname: "/-/media/images/**",
+      },
     ],
   },
 });

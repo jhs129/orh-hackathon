@@ -4,6 +4,24 @@ import dynamic from "next/dynamic";
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
 
 Builder.registerComponent(
+  dynamic(() => import("@/components/ui/hero")),
+  {
+    name: "Hero",
+//    image, headline, subheadline, blurb
+    inputs: [
+      { name: "headline", type: "string", defaultValue: "[Headline]"},
+      { name: "subheadline", type: "string", defaultValue: "[Subheadline]"},
+      { name: "blurb", type: "string", defaultValue: "[Blurb]"},
+      { name: "image", type: "file", allowedFileTypes: ["jpeg", "jpg", "png", "svg"] },
+      { name: "mobileImage", type: "file", allowedFileTypes: ["jpeg", "jpg", "png", "svg"] },
+      { name: "altText", type: "string", defaultValue: "[altText]" },
+      { name: "buttonText", type: "string", defaultValue: "[Button Text]" },
+      { name: "buttonUrl", type: "url" },
+    ],
+  }
+);
+
+Builder.registerComponent(
   dynamic(() => import("@/components/ui/Button")),
   {
     name: "Button",

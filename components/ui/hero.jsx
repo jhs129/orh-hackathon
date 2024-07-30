@@ -1,22 +1,62 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 function Hero(props) {
-    const { image, headline, subheadline, blurb } = props;
+  const {
+    headline,
+    subheadline,
+    blurb,
+    image,
+    mobileImage,
+    altText,
+    buttonText,
+    buttonUrl,
+  } = props;
 
-    return (
-        <div className="flex flex-col md:flex-row gap-4 pt-4">
-            <div className="w-1/2">
-                <Image src={image} alt={headline} height='600' width='400'/>
-            </div>
-            <div className="text-left">
-                <h1 className="text-left">{headline}</h1>
-                {subheadline && <h2 className="text-left">{subheadline}</h2>}
-                <p>{blurb}</p>
-            </div>
+  return (
+    <section>
+      <div className="flex relative flex-row md:flex-col justify-center items-end px-16 py-20 min-h-[431px] max-md:px-5">
+        <img
+          loading="lazy"
+          src={image}
+          alt={altText}
+          className="hidden md:flex absolute object-cover inset-0 size-full"
+        />
+        <img
+          loading="lazy"
+          src={mobileImage}
+          alt={altText}
+          className="flex md:hidden absolute object-cover inset-0 size-full"
+        />
+        <div className="hidden md:flex relative flex-col lg:left-40 max-w-full w-[498px]">
+          <div>
+            <h1 className="text-primaryAccent">{headline}</h1>
+            <h2 className="text-primaryDark">{subheadline}</h2>
+            <p className="mt-4">{blurb}</p>
+          </div>
+          <div>
+            <Link href={buttonUrl || "#"} passHref>
+              <button>{buttonText}</button>
+            </Link>
+          </div>
         </div>
-    );
-};
+      </div>
+      <div className="md:hidden flex flex-col justify-center items-center px-5 py-10">
+      <div>
+            <h1 className="text-primaryAccent my-0">{headline}</h1>
+            <h2 className="text-primaryDark my-0">{subheadline}</h2>
+            <p className="mt-4">{blurb}</p>
+          </div>
+          <div>
+            <Link href={buttonUrl || "#"} passHref className="mx-0">
+              <button className="mr-10">{buttonText}</button>
+            </Link>
+          </div>
 
+        </div>
+    </section>
+  );
+}
 
 export default Hero;
