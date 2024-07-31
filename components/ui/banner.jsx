@@ -25,8 +25,8 @@ function Banner(props) {
           />
         </div>
         <div className="md:w-1/2 px-8 py-8 bg-secondaryDark flex flex-col justify-center">
-          <h1 className="text-primaryAccent">{headline}</h1>
-          <h2 className="text-primaryDark">{subheadline}</h2>
+          <h2>{headline}</h2>
+          {subheadline && <h3 className="text-primaryDark">{subheadline}</h3>}
           <p className="mt-4">{blurb}</p>
           <Link href={buttonUrl || "#"} passHref>
             <button>{buttonText}</button>

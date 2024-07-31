@@ -75,15 +75,9 @@ Builder.registerComponent(
 );
 
 Builder.registerComponent(
-  withChildren(dynamic(() => import("@/components/ui/link-list-columns"))),
+  dynamic(() => import("@/components/ui/link-list-columns")),
   {
     name: "Link List Columns",
-    // childRequirements: {
-    //   message: "You can only put in Card components",
-    //   query: {
-    //     "component.name": { $in: ["List Item"] },
-    //   },
-    // },
     inputs: [
       {
         name: "links",
