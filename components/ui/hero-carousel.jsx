@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getDefaultContent } from "./hero-carousel.content";
-import Image from "next/image";
+
 
 function HeroCarousel(props) {
   let slides;
@@ -34,7 +34,7 @@ function HeroCarousel(props) {
       className="site-container flex flex-col overflow-hidden relative lg:px-4"
     >
       <div className="flex flex-col">
-        <Image
+        <img
           src={slides[currentSlide].image}
           alt="Hero Image"
           width={1024}

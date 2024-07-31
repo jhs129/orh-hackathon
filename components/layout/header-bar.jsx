@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import { getDefaultContent } from "./header-bar.content";
-import Image from 'next/image';
 import SearchIcon from '../icons/search-icon';
 
 function HeaderBar({ logoImage, mobileLogoImage, logoAlt, content }) {
@@ -27,8 +26,8 @@ function HeaderBar({ logoImage, mobileLogoImage, logoAlt, content }) {
           <p className="mt-2 text-xs leading-3 text-center uppercase text-primaryDark ">Menu</p>
         </div>
         <div className="pl-0 md:pl-48 lg:pl-0">
-          <Image loading="lazy" src={logoImage} alt={logoAlt} className="hidden lg:flex" width="300" height="200" />
-          <Image loading="lazy" src={mobileLogoImage} alt={logoAlt} className="flex lg:hidden m-2" width="200" height="200" />
+          <img loading="lazy" src={logoImage} alt={logoAlt} className="hidden lg:flex" width="300" height="200" />
+          <img loading="lazy" src={mobileLogoImage} alt={logoAlt} className="flex lg:hidden m-2" width="200" height="200" />
         </div>
       </nav>
       <div className="flex flex-row gap-8 my-auto text-base leading-5 text-center text-white uppercase whitespace-nowrap max-md:flex-wrap max-md:max-w-full">

@@ -10,7 +10,7 @@ function LinkListColumns (props)  {
 
   return (
     <div>
-      <ul className="flex flex-wrap text-white pr-4 justify-between">
+      <ul className="flex flex-wrap text-white pr-4 justify-between" suppressHydrationWarning>
         {props.children}
       </ul>
     </div>
