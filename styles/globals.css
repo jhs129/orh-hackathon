@@ -20,8 +20,9 @@ body {
 h1 {
   @apply text-[2.5rem] my-4 font-sans leading-none text-primaryDark;
 }
+
 h2 {
-  @apply text-[2rem] my-4 font-medium font-sans text-primaryDark;
+  @apply text-[2rem] my-4 font-medium font-sans text-inherit;
 }
 h3 {
   @apply text-xl my-4 font-sans leading-5;
@@ -46,6 +47,10 @@ a {
 
 nav a {
   @apply text-white hover:text-secondaryDark transition-colors duration-300 ease-in-out;
+}
+
+li a {
+  @apply text-inherit hover:text-secondaryDark transition-colors duration-300 ease-in-out;
 }
 
 button {
