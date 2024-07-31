@@ -28,13 +28,11 @@ function Hero(props) {
           alt={altText}
           className="flex md:hidden absolute object-cover inset-0 size-full"
         />
-        <div className="hidden md:flex relative flex-col lg:left-40 max-w-full w-[498px]">
+        <div className="hidden md:flex relative flex-col w-1/2 items-center lg:pl-8 xl:pl-0">
           <div>
             <h1 className="text-primaryAccent">{headline}</h1>
             <h2 className="text-primaryDark">{subheadline}</h2>
-            <p className="mt-4">{blurb}</p>
-          </div>
-          <div>
+            <p className="mt-4">{blurb}</p>  
             <Link href={buttonUrl || "#"} passHref>
               <button>{buttonText}</button>
             </Link>
@@ -46,13 +44,10 @@ function Hero(props) {
             <h1 className="text-primaryAccent my-0">{headline}</h1>
             <h2 className="text-primaryDark my-0">{subheadline}</h2>
             <p className="mt-4">{blurb}</p>
-          </div>
-          <div>
             <Link href={buttonUrl || "#"} passHref className="mx-0">
               <button className="mr-10">{buttonText}</button>
             </Link>
           </div>
-
         </div>
     </section>
   );
