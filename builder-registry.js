@@ -22,6 +22,25 @@ Builder.registerComponent(
 );
 
 Builder.registerComponent(
+  dynamic(() => import("@/components/ui/banner")),
+  {
+    name: "Banner",
+//    image, headline, subheadline, blurb
+    inputs: [
+      { name: "headline", type: "string", defaultValue: "[Headline]"},
+      { name: "subheadline", type: "string", defaultValue: "[Subheadline]"},
+      { name: "blurb", type: "string", defaultValue: "[Blurb]"},
+      { name: "image", type: "file", allowedFileTypes: ["jpeg", "jpg", "png", "svg"] },
+      { name: "mobileImage", type: "file", allowedFileTypes: ["jpeg", "jpg", "png", "svg"] },
+      { name: "altText", type: "string", defaultValue: "[altText]" },
+      { name: "buttonText", type: "string", defaultValue: "[Button Text]" },
+      { name: "buttonUrl", type: "url" },
+    ],
+  }
+);
+
+
+Builder.registerComponent(
   dynamic(() => import("@/components/ui/Button")),
   {
     name: "Button",
@@ -56,15 +75,9 @@ Builder.registerComponent(
 );
 
 Builder.registerComponent(
-  withChildren(dynamic(() => import("@/components/ui/link-list-columns"))),
+  dynamic(() => import("@/components/ui/link-list-columns")),
   {
     name: "Link List Columns",
-    // childRequirements: {
-    //   message: "You can only put in Card components",
-    //   query: {
-    //     "component.name": { $in: ["List Item"] },
-    //   },
-    // },
     inputs: [
       {
         name: "links",

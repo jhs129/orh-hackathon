@@ -18,8 +18,8 @@ function PracticeCard(props) {
       <div
         id="overlay"
         className={`absolute bottom-0 ${isHovered ? 'h-1/3' : 'h-1/4'} w-72 xl:w-80  bg-primaryAccent hover:bg-secondaryAccent group`}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        // onMouseEnter={() => setIsHovered(true)}
+        // onMouseLeave={() => setIsHovered(false)}
       >
         <div className="flex mx-auto">
           <h3 className="text-primaryLight group-hover:text-primaryDark mx-auto px-4">
