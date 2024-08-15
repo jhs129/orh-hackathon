@@ -144,12 +144,6 @@ Builder.registerComponent(
   withChildren(dynamic(() => import("@/components/ui/card-section"))),
   {
     name: "Card Section",
-    childRequirements: {
-      message: "You can only put in Card components",
-      query: {
-        "component.name": { $in: ["Practice Card"] },
-      },
-    },
     inputs: [
       {
         name: "headline",

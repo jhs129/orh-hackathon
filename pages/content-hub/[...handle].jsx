@@ -16,6 +16,7 @@ import Footer from "@/components/layout/Footer";
 import TaxonomyTags from "@/components/ui/taxomomy-tags";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
+builder.apiVersion = "v3";
 
 function BlogArticle(props) {
   const article = props.article;
@@ -121,13 +122,12 @@ function BlogArticle(props) {
 export async function getStaticProps({ params }) {
   console.log("Calling getStaticProps for:", params);
 
-  console.log("Getting topNav");
+  
   const topNavContent = await builder
     .get("navigation", { query: { name: "top-nav-bar" }, enrich: true })
     .promise();
 
-  console.log("Getting headerBarContent");
-
+  
   const headerBarContent = await builder
     .get("navigation", { query: { name: "headerbar" }, enrich: true })
     .promise();
@@ -142,6 +142,9 @@ export async function getStaticProps({ params }) {
         userAttributes: {
           "data.name": params.handle,
         },
+        options: {
+          vercelPreview: true,
+        },
         enrich: true,
       })
       .promise()) || null;
@@ -151,6 +154,8 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       article: article || null,
+      topnavbar: topNavContent || null,
+      headerbar: headerBarContent || null,
       handle: params.handle || null,
     },
     revalidate: 5,
@@ -158,10 +163,16 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
+  const blogs = await builder.getAll('blog', {
+    options: { noTargeting: true },
+    fields: 'data.slug',
+  });
+
   return {
-    paths: [],
+    paths: blogs.map((blog) => `/content-hub/${blog.data?.slug}`),
     fallback: true,
   };
 }
+
 
 export default BlogArticle;

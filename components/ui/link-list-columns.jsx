@@ -5,7 +5,7 @@ import ListItem from './list-item';
 function LinkListColumns (props)  {
   // Define an array of hospital locations
   let links = props.links;
-  console.log(props.links);
+
   if (!props.links) {
     links = getDefaultContent();
   }

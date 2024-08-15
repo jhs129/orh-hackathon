@@ -9,6 +9,7 @@ import HeaderBar from "@/components/layout/header-bar";
 import Footer from "@/components/layout/Footer";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
+builder.apiVersion = "v3";
 
 // Define the Page component
 export default function Page({ page }) {
@@ -53,6 +54,9 @@ export const getStaticProps = async ({ params }) => {
      .get("page", {
        userAttributes: {
          urlPath: "/" + (params?.page?.join("/") || ""),
+       },
+       options: {
+         vercelPreview: true,
        },
      })
      .toPromise();

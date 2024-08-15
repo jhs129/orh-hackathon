@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@builder.io/dev-tools": "^0.2.22",
-    "@builder.io/react": "^3.2.5",
+    "@builder.io/react": "^4.0.4",
     "@builder.io/react-hydration-overlay": "^0.1.0",
     "@builder.io/sdk": "^2.2.2",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
