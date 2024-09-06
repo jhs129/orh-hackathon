@@ -154,3 +154,59 @@ Builder.registerComponent(
   }
 );
 
+Builder.registerComponent(
+  dynamic(() => import("@/components/dam/cloudImage")),
+  {
+    name: "Cloud Image",
+    inputs: [
+      { name: "image", type: "cloudinaryImageEditor" },
+      { name: "altText", type: "string", defaultValue: "[altText]" },
+      { name: "height", type: "number" },
+      { name: "width", type: "number" },
+      { 
+        name: "template", 
+        type: "string",
+        defaultValue: "portrait",
+        enum: [
+          { label: "Portrait", value: "portrait" },
+          { label: "Landscape", value: "landscape" },
+          { label: "Wide", value: "wide" },
+          { label: "Square", value: "squre" },
+          { label: "Thumbnail", value: "thumb" },
+        ],
+      },
+      { name: "gravity", type: "string" ,
+        defaultValue: "auto",
+        enum: [
+          { label: "Auto", value: "auto" },
+          { label: "Face", value: "face" },
+        ],
+      }
+    ],
+  }
+);
+
+
+Builder.registerComponent(
+  (props) => {
+    if (!props.cloudinaryOptions) {
+      return 'Choose an Image'
+    }
+    return (
+      <img
+        src={props.cloudinaryOptions.url}
+        width={props.cloudinaryOptions.width}
+        height={props.cloudinaryOptions.height}
+      />
+    )
+  },
+  {
+    name: 'CloudinaryImage',
+    image:
+      'https://res.cloudinary.com/cloudinary-marketing/image/upload/v1599098500/creative_source/Logo/Cloud%20Glyph/cloudinary_cloud_glyph_blue_png.png',
+    inputs: [{ 
+      name: 'cloudinaryOptions', 
+      type: 'cloudinaryImageEditor' 
+    }],
+  }
+)
