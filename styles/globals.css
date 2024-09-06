@@ -18,36 +18,23 @@ body {
 }
 
 h1 {
-  @apply text-[2.5rem] mb-4 font-sans leading-none text-primaryDark;
+  @apply text-[2.5rem] my-4 font-sans leading-none text-primaryDark;
 }
+
 h2 {
-  @apply text-[2rem] mb-4 font-medium font-sans text-primaryDark;
+  @apply text-[2rem] my-4 font-medium font-sans text-inherit;
 }
 h3 {
-  @apply text-xl mt-4 mb-4 font-sans leading-5;
+  @apply text-xl my-4 font-sans leading-5;
 }
 h4 {
-  @apply text-lg mb-4 font-sans;
+  @apply text-lg my-4 font-sans;
 }
 h5 {
-  @apply text-base mb-4 font-bold font-sans;
+  @apply text-base my-4 font-bold font-sans;
 }
 h6 {
-  @apply mb-4 font-sans;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-style: inherit;
-    vertical-align: baseline;
-    line-height: 1.25em;
-    font-weight: 700;
-    font-family: UniversBold,Helvetica,sans-serif;
-    font-size: 12px;
-    border-bottom: none!important;
-    color: #002072;
-    margin-bottom: .5rem;
-
+  @apply my-4 font-sans leading-5;
 }
 p {
   @apply mb-4  font-serif font-thin leading-[1.125rem];
@@ -60,6 +47,10 @@ a {
 
 nav a {
   @apply text-white hover:text-secondaryDark transition-colors duration-300 ease-in-out;
+}
+
+li a {
+  @apply text-inherit hover:text-secondaryDark transition-colors duration-300 ease-in-out;
 }
 
 button {
@@ -81,7 +72,7 @@ li {
 }
 
 .site-container {
-@apply container mx-auto px-0;
+@apply container mx-auto px-4;
 
 }
 
