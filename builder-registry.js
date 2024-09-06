@@ -155,7 +155,7 @@ Builder.registerComponent(
 );
 
 Builder.registerComponent(
-  dynamic(() => import("@/components/dam/cloudImage")),
+  dynamic(() => import("@/components/dam/damImage")),
   {
     name: "Cloud Image",
     inputs: [
